@@ -1,0 +1,91 @@
+   {/* {!isLogin && (
+                <div>
+                    <label>Name</label>
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+                </div>
+            )}
+            <div>
+                <label>Username</label>
+                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            </div>
+            <button type="submit">{isLogin ? 'Login' : 'Register'}</button> */}
+
+
+
+            //create
+              {/* <div>
+                <label>Form Title</label>
+                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
+            </div> */}
+            {/* {questions.map((question, index) => (
+                <div key={index}>
+                    <label>Question {index + 1}</label>
+                    <input
+                        type="text"
+                        value={question.questionText}
+                        onChange={(e) => handleQuestionChange(index, e)}
+                        required
+                    />
+                    <label>Question Type</label>
+                    <select value={question.questionType} onChange={(e) => handleQuestionTypeChange(index, e)}>
+                        <option value="text">Text</option>
+                        <option value="multiple-choice">Multiple Choice</option>
+                    </select>
+                    {question.questionType === 'multiple-choice' && (
+                        <>
+                            <div>
+                                <label>Options</label>
+                                {question.options.map((option, optionIndex) => (
+                                    <input
+                                        key={optionIndex}
+                                        type="text"
+                                        value={option}
+                                        onChange={(e) => handleOptionsChange(index, optionIndex, e)}
+                                        required
+                                    />
+                                ))}
+                                <button type="button" onClick={() => addOption(index)}>
+                                    Add Option
+                                </button>
+                            </div>
+                        </>
+                    )}
+                </div>
+            ))}
+            <button type="button" onClick={addQuestion}>Add Question</button>
+            <button type="submit">Create Form</button> */}
+
+
+
+
+ <form >
+                {form.questions.map((question, index) => (
+                    <div key={index}>
+                        <label>{question.questionText}</label>
+                        {question.questionType === 'text' ? (
+                            <input 
+                                type="text" 
+                                onChange={(e) => handleResponseChange(index, e)} 
+                                required 
+                            />
+                        ) : (
+                            <select 
+                                onChange={(e) => handleResponseChange(index, e)} 
+                                required
+                            >
+                                <option value="" disabled>Select an option</option>
+                                {question.options?.map((option, optionIndex) => (
+                                    <option key={optionIndex} value={option}>
+                                        {option}
+                                    </option>
+                                ))}
+                            </select>
+                        )}
+                    </div>
+                ))}
+                <button type="submit">Submit</button>
+            </form>
